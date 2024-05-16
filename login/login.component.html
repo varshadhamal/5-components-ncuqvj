@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+
+<table>
+<tr>
+  <td><b>User Name:</b></td>
+  <td><input type="text" [(ngModel)]="username" (blur)="blurValidationUserName()"></td>
+  <p *ngIf="isUserNameError" style="color:red;">Username is required.</p>
+</tr>
+
+<tr>
+  <td><b>Password:</b></td>
+  <td><input type="password" [(ngModel)]="password" (blur)="blurValdiationPassword()" ></td>
+  <p *ngIf="isPasswordError" style="color:red;">Password is required.</p>
+  <p *ngIf="isPasswordMinError" style="color:red;">Password should be minium 8 character.</p>
+</tr>
+
+<tr>
+  <td></td>
+  <td><button (click)="login()" [disabled]="isUserNameError||isPasswordError||isPasswordMinError">Login</button></td>
+</tr>
+
+</table>
+<span>{{username}}</span>
